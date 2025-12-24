@@ -1,3 +1,4 @@
+#This file is the main file that uses every other class to deliver the final product. Run this file, not the other ones!
 from world import gridworld
 from BFS_pathfinder import BFS_pathfinder
 from flavor_texts import title
