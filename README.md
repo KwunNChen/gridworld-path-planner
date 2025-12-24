@@ -1,5 +1,6 @@
 # gridworld-path-planner
 ## A grid-based world with obstacles, where an agent finds a path from a start cell to a goal using Breadth First Search (BFS)
+### Run this project in the BFS_main.py file, but you still have to put every class here in a folder, because BFS_main imports everything from every class here!
 
 The project is being split up into separate parts:
 
