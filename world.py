@@ -1,6 +1,6 @@
-import random
+# This is the class to make grid world. It also checks if a space is legal or not for the agent to move to.
 
-#This is the class to make grid world
+import random
 class gridworld:
     def __init__(self, size, obstacle_count):
         self.size = size
@@ -54,3 +54,4 @@ class gridworld:
                 if self.is_free(temp_cells[i]):
                     can_move.append(temp_cells[i])
         return can_move
+
