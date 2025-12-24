@@ -30,7 +30,6 @@ class gridworld:
         if 0 <= x < self.size and 0 <= y < self.size:
             return True
         else:
-            print("Not a valid cell")
             return False
     
     #Check if a cell is free to move
@@ -40,10 +39,8 @@ class gridworld:
             if self.grid[x][y] != "#":
                 return True
             else:
-                print("Obstacle detected")
                 return False
         else:
-            print("Not a valid cell")
             return False
     
     #Check which side can be moved
@@ -57,11 +54,3 @@ class gridworld:
                 if self.is_free(temp_cells[i]):
                     can_move.append(temp_cells[i])
         return can_move
-
-
-
-#Testing Corner
-print("Starting Grid Generations...")
-test1 = gridworld(5, 10)
-test1.in_cell((6,7)) #False
-test1.in_cell((2,2)) #True
