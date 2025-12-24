@@ -1,5 +1,6 @@
-
-from world import gridworld
+# This file is the primary pathfinding file, it utilizes Breadth First Search (BFS) via a Double-Ended Queue (Deque). 
+# A Deque (Double-Ended Queue) is a versatile data structure that allows insertion and deletion of elements from both ends. 
+# I'm going to be totally honest I relied heavily on these videos for this class: https://www.youtube.com/watch?v=46VmSgebZP4&t=1s, https://www.youtube.com/watch?v=oDqjPvD54Ss&t=3s
 import random
 from collections import deque
 
@@ -108,3 +109,4 @@ class BFS_pathfinder:
                 self.world.grid[x][y] = "*"
 
     
+
