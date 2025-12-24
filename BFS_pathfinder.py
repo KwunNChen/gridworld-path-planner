@@ -1,5 +1,7 @@
+
 from world import gridworld
 import random
+from collections import deque
 
 class BFS_pathfinder:
     def __init__(self, world, start, goal):
@@ -59,5 +61,50 @@ class BFS_pathfinder:
                         self.world.grid[a][b] = "G"
                         placed = True
                         print(f"Invalid goal, randomized to ({a},{b})")
+
+    def find_path(self):
+        #Performs BFS to find the shortest path from start to end.
+        #Returns a list of coordinates from start to end, inclusive, if a path exists
+        #Otherwise returns None
+        start = self.start
+        goal = self.end
+
+        if start == goal:
+            return [start]
+
+        # BFS setup
+        queue = deque([start])
+        visited = {start}
+        parent = {start: None}
+
+        while queue:
+            current = queue.popleft()
+            for nbr in self.world.neighbors(current):
+                if nbr in visited:
+                    continue
+                visited.add(nbr)
+                parent[nbr] = current
+                if nbr == goal:
+                    # Reconstruct path
+                    path = []
+                    node = goal
+                    while node is not None:
+                        path.append(node)
+                        node = parent.get(node)
+                    path.reverse()
+                    return path
+                queue.append(nbr)
+
+        # No path found
+        print("No path found from start to goal.")
+        return None
+
+    def mark_path(self, path):
+        #Marks the path on the world's grid with '*' (preserves 'S' and 'G')
+        if not path:
+            return
+        for (x, y) in path:
+            if self.world.grid[x][y] not in ("S", "G"):
+                self.world.grid[x][y] = "*"
 
     
